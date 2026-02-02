@@ -1,0 +1,35 @@
+// // Setup web server
+    // server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+    //     String html = String(html_page);
+    //     html.replace("%IP%", wifi.getIP());
+    //     html.replace("%RSSI%", String(wifi.getRSSI()));
+    //     request->send(200, "text/html", html);
+    // });
+    
+    // server.on("/uptime", HTTP_GET, [](AsyncWebServerRequest *request) {
+    //     request->send(200, "text/plain", String(millis() / 1000));
+    // });
+    
+    // server.on("/led/toggle", HTTP_POST, [](AsyncWebServerRequest *request) {
+    //     static bool ledState = false;
+    //     ledState = !ledState;
+    //     digitalWrite(2, ledState);
+        
+    //     String response = ledState ? 
+    //         "<span style='color:green'>LED: ON</span>" : 
+    //         "<span style='color:red'>LED: OFF</span>";
+    //     request->send(200, "text/html", response);
+    // });
+    
+    // server.on("/sensor", HTTP_GET, [](AsyncWebServerRequest *request) {
+    //     // Simulate sensor reading
+    //     float temp = random(200, 300) / 10.0;
+    //     float hum = random(400, 800) / 10.0;
+        
+    //     String response = "🌡️ Temp: " + String(temp, 1) + "°C<br>";
+    //     response += "💧 Hum: " + String(hum, 1) + "%";
+    //     request->send(200, "text/html", response);
+    // });
+    
+    // server.begin();
+    // Serial.println("✅ Web server started on port 80");

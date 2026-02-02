@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ESP32 HTMX</title>
+    <script src="/scripts/htmx.js"></script>
+    <script src="../scripts/tailwind.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="w-full h-auto flex flex-col">
+    <div class="p-3 flex flex-col gap-2 items-center bg-green-900">
+      <h1 class="text-xl font-bold text-white">Plant Monitoring System</h1>
+      <div id="plant-condition"></div>
+    </div>
+    
+    <!-- Button to redirect in monitoring system page -->
+    <div class="w-full bg-black text-white p-1 text-center cursor-pointer hover:bg-gray-800 transition-colors">
+      Monitor system
+    </div>
+    
+    <!-- Plant Info -->
+    <section>
+      <!-- Temperature and humidity -->
+      <div class="text-base w-full flex flex-col gap-2 items-center p-4">
+        <div class="flex justify-between gap-2 border-b w-full p-2">
+          <p hx-get="/temperature" hx-trigger="every 2s" class="flex-1 text-center">
+            Temp → <span class="font-bold text-blue-600">29°C</span>
+          </p>
+          <p hx-get="/humidity" hx-trigger="every 2s" class="flex-1 text-center">
+            Humi → <span class="font-bold text-blue-600">29%</span>
+          </p>
+        </div>
+        
+        <h3 class="text-center font-bold text-lg mt-2">Moisture</h3>
+        <div class="grid grid-cols-2 w-full place-items-center border-b p-4 gap-4">
+          <p hx-get="/moisture/1" hx-trigger="every 2s" class="text-lg text-center p-2 bg-gray-50 rounded w-20">
+            1 → <span class="font-bold">29%</span>
+          </p>
+          <p hx-get="/moisture/2" hx-trigger="every 2s" class="text-lg text-center p-2 bg-gray-50 rounded w-20">
+            2 → <span class="font-bold">29%</span>
+          </p>
+          <p hx-get="/moisture/3" hx-trigger="every 2s" class="text-lg text-center p-2 bg-gray-50 rounded w-20">
+            3 → <span class="font-bold">29%</span>
+          </p>
+          <p hx-get="/moisture/4" hx-trigger="every 2s" class="text-lg text-center p-2 bg-gray-50 rounded w-20">
+            4 → <span class="font-bold">29%</span>
+          </p>
+        </div>
+
+        <!-- Previous Capture Image -->
+        <div class="p-4 w-full overflow-y-auto ">
+          <h3 class="text-center font-bold text-lg mb-2">Previous Captures</h3>
+          <div class="flex items-center gap-4 overflow-x-auto w-full h-[150px] bg-neutral-800 p-4">
+            <div class="w-[150px] h-[100px] bg-white shrink-0 flex items-center justify-center">
+              <span class="text-gray-600">Image 1</span>
+            </div>
+            <div class="w-[150px] h-[100px] bg-white shrink-0 flex items-center justify-center">
+              <span class="text-gray-600">Image 2</span>
+            </div>
+            <div class="w-[150px] h-[100px] bg-white shrink-0 flex items-center justify-center">
+              <span class="text-gray-600">Image 3</span>
+            </div>
+            <div class="w-[150px] h-[100px] bg-white shrink-0 flex items-center justify-center">
+              <span class="text-gray-600">Image 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // PlantCondition function with proper syntax
+      function PlantCondition() {
+        const isPestDetected = false;
+        // <img class="w-[300px] object-cover max-h-[200px]" src="/images/pest-detected.jpg" alt="Pest detected" />
+        // Return a single template string, not JSX
+        return  `
+          <div>
+            ${isPestDetected 
+              ? `<div class="bg-white w-[200px] h-[200px] "></div>`
+              : `<div class="bg-green-600 w-[200px] h-[200px] "></div>`
+            }
+          </div>
+        `;
+      }
+      
+      // Initialize when DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        const plantConditionDiv = document.getElementById('plant-condition');
+        if (plantConditionDiv) {
+          plantConditionDiv.innerHTML = PlantCondition();
+        }
+        
+        // Initialize HTMX (if not auto-initialized)
+        if (window.htmx) {
+          htmx.process(document.body);
+        }
+      });
+    </script>
+  </body>
+</html>
