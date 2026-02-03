@@ -8,6 +8,7 @@ class ActuatorManager
 public:
     ActuatorManager();  // Constructor - NO return type
     
+    // Initialize the ActuatorManager
     void begin();
     
     // Relay
@@ -15,4 +16,6 @@ public:
     bool safeRelayOn(int pin, bool state);
     void checkTimeouts();
 
+    // Buzzer
+    void runBuzzerPattern();
 };
