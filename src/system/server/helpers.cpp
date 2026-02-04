@@ -1,6 +1,6 @@
-#include <system/server_manager.h>
+#include <manager/system/server_manager.h>
 
-// Definition of static members
+//* Definition of static members
 const ServerManager::MimeType ServerManager::mimeTypes[] = {
     {".html", "text/html"},
     {".htm", "text/html"},

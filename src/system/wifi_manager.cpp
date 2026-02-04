@@ -1,5 +1,5 @@
-#include "system/wifi_manager.h"
-#include "config/private/wifi_secrets.h" // We'll define WIFI_SSID and WIFI_PASSWORD here if not provided
+#include "manager/system/wifi_manager.h"
+#include "config/private/wifi_secrets.h" //* We'll define WIFI_SSID and WIFI_PASSWORD here if not provided
 
 WiFiManager::WiFiManager()
     : _ssid(WIFI_SSID),
@@ -12,17 +12,17 @@ WiFiManager::WiFiManager()
 
 void WiFiManager::begin()
 {
-    delay(100); // Small delay for serial stability
+    delay(100); //* Small delay for serial stability
     Serial.println("[WiFi] Initializing WiFi...");
 
-    // Set WiFi mode to Station (client)
+    //* Set WiFi mode to Station (client)
     WiFi.mode(WIFI_STA);
 
-    // Optional: set hostname
+    //* Optional: set hostname
     String hostname = "ESP32-" + String((uint32_t)ESP.getEfuseMac(), HEX);
     WiFi.setHostname(hostname.c_str());
 
-    // Start the connection process
+    //* Start the connection process
     connect();
 }
 
@@ -39,7 +39,7 @@ void WiFiManager::connect()
 
 void WiFiManager::update()
 {
-    // Check the current status
+    //* Check the current status
     wl_status_t status = WiFi.status();
 
     if (status == WL_CONNECTED && !_connected)
@@ -51,7 +51,7 @@ void WiFiManager::update()
         onDisconnected();
     }
 
-    // If not connected and it's been more than 10 seconds since last attempt, try again
+    //* If not connected and it's been more than 10 seconds since last attempt, try again
     if (!_connected && (millis() - _lastAttemptTime > 10000))
     {
         Serial.println("[WiFi] Reconnecting...");

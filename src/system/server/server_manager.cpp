@@ -1,8 +1,9 @@
-#include "system/server_manager.h"
+#include "manager/system/server_manager.h"
 #include <WiFi.h>
+
 ServerManager::ServerManager() : server(80)
 {
-    // Constructor
+    //* Constructor
 }
 
 void ServerManager::serveFile(String basePath, String path)
@@ -27,7 +28,7 @@ void ServerManager::serveFile(String basePath, String path)
 
 void ServerManager::begin()
 {
-    // Initialize SPIFFS
+    //* Initialize SPIFFS
     if (!SPIFFS.begin(true))
     {
         Serial.println("SPIFFS Mount Failed!");
@@ -35,18 +36,18 @@ void ServerManager::begin()
     }
 
     Serial.println("SPIFFS mounted");
-    // // Debug: List all files in SPIFFS
-    // Serial.println("Files in SPIFFS:");
-    // File root = SPIFFS.open("/");
-    // File file = root.openNextFile();
-    // while (file)
-    // {
-    //     Serial.print("  ");
-    //     Serial.println(file.path());
-    //     file = root.openNextFile();
-    // }
+    //* //* Debug: List all files in SPIFFS
+    //* Serial.println("Files in SPIFFS:");
+    //* File root = SPIFFS.open("/");
+    //* File file = root.openNextFile();
+    //* while (file)
+    //* {
+    //*     Serial.print("  ");
+    //*     Serial.println(file.path());
+    //*     file = root.openNextFile();
+    //* }
 
-    // Setup frontend routes
+    //* Setup frontend routes
     defineFrontRoutes();
     defineBackRoutes();
 
@@ -65,7 +66,7 @@ void ServerManager::debugNetworkInfo()
 {
     Serial.println("\n=== DEBUG NETWORK INFO ===");
 
-    // Check WiFi mode
+    //* Check WiFi mode
     Serial.print("WiFi Mode: ");
     switch (WiFi.getMode())
     {
@@ -83,7 +84,7 @@ void ServerManager::debugNetworkInfo()
         break;
     }
 
-    // Check STA connection
+    //* Check STA connection
     Serial.print("STA Status: ");
     switch (WiFi.status())
     {
@@ -114,7 +115,7 @@ void ServerManager::debugNetworkInfo()
         Serial.println(WiFi.subnetMask());
     }
 
-    // Check AP
+    //* Check AP
     Serial.print("AP IP: ");
     Serial.println(WiFi.softAPIP());
     Serial.print("AP Clients: ");

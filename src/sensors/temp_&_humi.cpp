@@ -1,4 +1,4 @@
-#include <_sensors_manager.h>
+#include <manager/sensors_manager.h>
 
 String SensorsManager::getHumi()
 {
@@ -9,7 +9,7 @@ String SensorsManager::getHumi()
         return "ERR:READ_FAIL - Temperature";
     }
 
-    return String(humidity, 1); // 1 decimal place
+    return String(humidity, 1); //* 1 decimal place
 }
 
 String SensorsManager::getTemp()
@@ -21,5 +21,5 @@ String SensorsManager::getTemp()
         return "ERR:READ_FAIL - Temperature";
     }
 
-    return String(temperature, 1); // 1 decimal place
+    return String(temperature, 1); //* 1 decimal place
 }
