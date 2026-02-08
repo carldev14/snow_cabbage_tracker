@@ -43,7 +43,7 @@ public:
     //** STEPPER MOTOR
     static const int STEP_PIN = 26; // Step pin for stepper driver
     static const int DIR_PIN = 27; // Direction pin for stepper driver
-    static const int SLEEP_PIN = 14; // to control power to the stepper driver (HIGH = active, LOW = sleep)
+    static const int SLEEP_PIN = 22; // to control power to the stepper driver (HIGH = active, LOW = sleep)
 
     //** I2C
     static const int I2C_SDA = 33;
