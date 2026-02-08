@@ -17,8 +17,8 @@ class SystemConfig
 {
 public:
     //* Get the single instance
-    static SystemConfig& get();
-    
+    static SystemConfig &get();
+
     //* Initialize all managers
     void begin();
 
@@ -42,8 +42,10 @@ public:
 
     //** STEPPER MOTOR
     static const int STEP_PIN = 26; // Step pin for stepper driver
-    static const int DIR_PIN = 27; // Direction pin for stepper driver
-    static const int SLEEP_PIN = 22; // to control power to the stepper driver (HIGH = active, LOW = sleep)
+    static const int DIR_PIN = 27;  // Direction pin for stepper driver
+    //* SLEEP_PIN is used to control power to the stepper driver. Set HIGH to enable the driver and LOW to put it to sleep (saving power and preventing overheating when not in use).
+    //* Both reset pin and sleep pin are connected together for simplicity, so we can just control the sleep pin to manage power to the driver.
+    static const int SLEEP_PIN = 22;
 
     //** I2C
     static const int I2C_SDA = 33;
@@ -61,15 +63,15 @@ public:
     static const int NUM_ACTUATORS;
 
     //** ===== CONVENIENCE ACCESSORS =====
-    static WiFiManager& WiFi() { return wifi; }
-    static ServerManager& Server() { return server; }
-    static SensorsManager& Sensors() { return sensors; }
-    static ActuatorsManager& Actuators() { return actuators; }
+    static WiFiManager &WiFi() { return wifi; }
+    static ServerManager &Server() { return server; }
+    static SensorsManager &Sensors() { return sensors; }
+    static ActuatorsManager &Actuators() { return actuators; }
 
 private:
     SystemConfig() = default;
-    SystemConfig(const SystemConfig&) = delete;
-    SystemConfig& operator=(const SystemConfig&) = delete;
-    
+    SystemConfig(const SystemConfig &) = delete;
+    SystemConfig &operator=(const SystemConfig &) = delete;
+
     bool initialized = false;
 };
