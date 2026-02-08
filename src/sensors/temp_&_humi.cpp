@@ -1,25 +1,25 @@
 #include <manager/sensors_manager.h>
 
-String SensorsManager::getHumi()
+float SensorsManager::getHumi()
 {
 
     float humidity = dhtSensor->readHumidity();
     if (isnan(humidity))
     {
-        return "ERR:READ_FAIL - Temperature";
+        return -1; // Return an error value
     }
 
-    return String(humidity, 1); //* 1 decimal place
+    return humidity; //* 1 decimal place
 }
 
-String SensorsManager::getTemp()
+float SensorsManager::getTemp()
 {
 
     float temperature = dhtSensor->readTemperature();
     if (isnan(temperature))
     {
-        return "ERR:READ_FAIL - Temperature";
+        return -1; // Return an error value
     }
 
-    return String(temperature, 1); //* 1 decimal place
+    return temperature; //* 1 decimal place
 }
