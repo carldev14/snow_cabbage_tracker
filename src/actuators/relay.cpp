@@ -1,57 +1,70 @@
-
 #include <manager/actuators_manager.h>
-#include <config/system_config.h>
 
-//* If you don't have a current sensor, use these protections:
-void ActuatorsManager::useRelay(int pin, int value)
+/**
+ * ? Reminder to keep in mind when working with relays:
+ * ? NO (Normally Closed): The relay is in its default state, and the circuit is closed (ON). Which is the current not flow in default
+ * ? Additionally. NO is the one who supplies power to the device, so when the relay is activated, it will connect the power to the device and turn it ON.
+ *
+ * ? NC (Normally Open): The relay is in its default state, and the circuit is open (OFF). Which is the current flow in default
+ * ? Additionally, NC is the one who supplies power to the device, so when the relay is activated, it will disconnect the power to the device and turn it OFF.
+ *
+ * ? COM (Common): The common terminal acts as the lever to switch between NO and NC.
+ * ? Addition information: When you choose to connect in NC (Normally closed), provided you a default flowing current.
+ *
+ * ? In short, if you want to use the relay to turn ON as default, you can connect the device to NC and COM, and if you want to use the relay to turn OFF as default, you can connect the device to NO and COM.
+ */
+
+// Simple relay control with Active-LOW logic
+void useRelay(int pin, int value, String name)
 {
-    digitalWrite(pin, value);
-}
-
-bool ActuatorsManager::safeRelayOn(int pin, bool state)
-{
-
-    //* === PROTECTION 1: DEBOUNCE (MOST IMPORTANT!) ===
     static unsigned long lastToggleTime = 0;
     unsigned long now = millis();
-    if (now - lastToggleTime < 100)
-    { //* 100ms minimum
-        Serial.println("SAFETY: Toggled too fast (min 100ms)");
-        return false;
+    
+    // === PROTECTION 1: DEBOUNCE (100ms) ===
+    if (now - lastToggleTime < 100) {
+        // Serial.println("SAFETY: Toggled too fast (min 100ms)");
+        return;
     }
-
-    //* === PROTECTION 2: CHECK CURRENT STATE ===
-    int currentState = digitalRead(pin);
-    if (currentState == state)
-    {
-        //* Already in desired state
-        return true;
+    
+    // === LOGIC: Convert value to signal (Active-LOW) ===
+    // value = HIGH: We want device ON -> send LOW to Active-LOW relay
+    // value = LOW: We want device OFF -> send HIGH to Active-LOW relay
+    bool signalToSend = (value == HIGH) ? LOW : HIGH;
+    
+    // === PROTECTION 2: CHECK CURRENT STATE ===
+    int currentSignal = digitalRead(pin);
+    if (currentSignal == signalToSend) {
+        // Already in correct state
+        // Serial.print(name);
+        // Serial.print(" already ");
+        // Serial.println(value == HIGH ? "ON" : "OFF");
+        return; // CRITICAL: Stop here!
     }
-
-    //* === PROTECTION 2: ARC SUPPRESSION ===
-    if (currentState == HIGH && state == LOW)
-    {
-        //* Turning OFF - wait for inductive kick
-        delay(10); //* 10ms delay
+    
+    // === PROTECTION 3: ARC SUPPRESSION ===
+    // Only needed when turning OFF (signal: LOW -> HIGH)
+    if (currentSignal == LOW && signalToSend == HIGH) {
+        delay(10);
     }
-
-    //* === PROTECTION 4: EXECUTE ===
-    digitalWrite(pin, state);
+    
+    // === EXECUTE ===
+    digitalWrite(pin, signalToSend);
     lastToggleTime = now;
-
-    //* === PROTECTION 5: AUTO-OFF TIMEOUT ===
-    if (state == HIGH)
-    {
-        //* Schedule auto-off after 5 minutes
-        Serial.print("WARNING: Relay ");
-        Serial.print(pin);
-        Serial.println(" will auto-off in 5 minutes");
-    }
-
-    Serial.print("Relay ");
-    Serial.print(pin);
-    Serial.print(" -> ");
-    Serial.println(state ? "ON" : "OFF");
-    return true;
+    
+    // === LOGGING ===
+    // Serial.print(name);
+    // Serial.print(" -> ");
+    // Serial.println(value == HIGH ? "ON" : "OFF");
+    
 }
 
+
+void ActuatorsManager::toggleArtificialLight(bool turnOn)
+{
+    useRelay(SystemConfig::LED_STRIP_PIN, turnOn ? HIGH : LOW, "LED Strip");
+}
+
+void ActuatorsManager::toggleWaterPump(bool turnOn)
+{
+    useRelay(SystemConfig::WATER_PUMP_PIN, turnOn ? HIGH : LOW, "Water Pump");
+}
