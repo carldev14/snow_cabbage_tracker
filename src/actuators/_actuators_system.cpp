@@ -1,5 +1,4 @@
 #include "manager/actuators_manager.h"
-#include "config/system_config.h"
 
 ActuatorsManager::ActuatorsManager()
 {
@@ -22,4 +21,8 @@ void ActuatorsManager::begin()
 
     //* Motor driver pins
     pinMode(SystemConfig::STEP_PIN, OUTPUT);
+    pinMode(SystemConfig::DIR_PIN, OUTPUT);
+    pinMode(SystemConfig::SLEEP_PIN, OUTPUT);
+
+    stepperBegin();
 }
