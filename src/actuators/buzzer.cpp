@@ -1,5 +1,4 @@
 #include <manager/actuators_manager.h>
-#include <config/system_config.h>
 
 void ActuatorsManager::runBuzzerPattern()
 {
