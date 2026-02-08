@@ -1,7 +1,7 @@
 #include <manager/sensors_manager.h>
 #include <config/system_config.h>
 
-String SensorsManager:: getSoilMoistData(int SMNum)
+float SensorsManager::getSoilMoistData(int SMNum)
 {
     int pin;
 
@@ -21,19 +21,18 @@ String SensorsManager:: getSoilMoistData(int SMNum)
     default:
         Serial.print("Invalid soil sensor number: ");
         Serial.println(SMNum);
-        return "ERR:INVALID_SENSOR";
     }
 
     //* Read the analog value
     int soilValue = analogRead(pin);
 
-    //* Debug output
-    Serial.print("[Soil ");
-    Serial.print(SMNum);
-    Serial.print("] Pin ");
-    Serial.print(pin);
-    Serial.print(": Raw=");
-    Serial.print(soilValue);
+    // //* Debug output
+    // Serial.print("[Soil ");
+    // Serial.print(SMNum);
+    // Serial.print("] Pin ");
+    // Serial.print(pin);
+    // Serial.print(": Raw=");
+    // Serial.print(soilValue);
 
     //* Calibration values - ADJUST THESE FOR YOUR SENSOR!
     //* Dry in air vs submerged in water
@@ -46,9 +45,9 @@ String SensorsManager:: getSoilMoistData(int SMNum)
     //* Constrain to 0-100%
     percentage = constrain(percentage, 0, 100);
 
-    Serial.print(" | Moisture=");
-    Serial.print(percentage);
-    Serial.println("%");
+    // Serial.print(" | Moisture=");
+    // Serial.print(percentage);
+    // Serial.println("%");
 
-    return String(percentage) + "%";
+    return percentage;
 }
