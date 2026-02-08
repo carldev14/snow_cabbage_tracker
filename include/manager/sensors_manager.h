@@ -20,16 +20,15 @@ public:
     void begin();
 
     //* Dht11
-    String getTemp();
-    String getHumi();
-    String getSoilMoistData(int SMNum);
-
-    //* If rain detected
-    bool isRainDetected();
+    float getTemp();
+    float getHumi();
+    float getSoilMoistData(int SMNum);
 
     //* Photoresistor
-    bool isNightDetected(); //* this will trigger the led strips
-
+    bool isDimLightDetected();    //* this will trigger the led strips
+    
+    const int DRY_THRESHOLD = 30; // Below 30% = DRY
+    const int WET_THRESHOLD = 70; // Above 70% = WET
 private:
     DHT *dhtSensor;
 
