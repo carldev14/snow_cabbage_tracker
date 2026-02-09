@@ -1,7 +1,6 @@
 #include "manager/system/wifi_manager.h"
 #include "config/private/wifi_secrets.h" //* We'll define WIFI_SSID and WIFI_PASSWORD here if not provided
 
-
 WiFiManager::WiFiManager()
     : _ssid(WIFI_SSID),
       _password(WIFI_PASSWORD),
@@ -76,8 +75,10 @@ void WiFiManager::onConnected()
     Serial.println("[WiFi] Waiting for NTP time sync...");
 
     if (getLocalTime(&timeinfo, 10000))
-    { // wait up to 10s
-
+    {
+        // Initial Time. Until the delay lifted.
+        _cachedTime = combineHourMin(timeinfo.tm_hour, timeinfo.tm_min);
+        Serial.println("[TIME] " + _cachedTime);
         Serial.println("[WiFi] Time synchronized");
     }
     else
@@ -96,23 +97,30 @@ void WiFiManager::onDisconnected()
 
 String WiFiManager::getRealTime()
 {
+    // Wait and delay for 2 hours before
     unsigned long currentMillis = millis();
-
     if (currentMillis - _lastTimeUpdate >= TIME_INTERVAL)
     {
         _lastTimeUpdate = currentMillis;
 
         struct tm timeinfo;
+
         if (getLocalTime(&timeinfo))
         {
-            char buffer[5]; // HHMM
-            snprintf(buffer, sizeof(buffer), "%02d%02d",
-                     timeinfo.tm_hour,
-                     timeinfo.tm_min);
-
-            _cachedTime = buffer;
+            _cachedTime = combineHourMin(timeinfo.tm_hour, timeinfo.tm_min);
+        }
+        else
+        {
+            _cachedTime = "";
         }
     }
 
     return _cachedTime;
+}
+
+String WiFiManager::combineHourMin(int hour, int min)
+{
+    char buffer[5]; // HHMM
+    snprintf(buffer, sizeof(buffer), "%02d%02d", hour, min);
+    return String(buffer);
 }
