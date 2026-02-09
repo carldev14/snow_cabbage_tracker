@@ -1,4 +1,3 @@
-#include "manager/sensors_manager.h"
 #include "config/system_config.h"
 
 //* Constructor - initialize dhtSensor to nullptr

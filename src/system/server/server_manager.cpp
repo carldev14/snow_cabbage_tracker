@@ -1,5 +1,4 @@
-#include "manager/system/server_manager.h"
-#include <WiFi.h>
+#include "config/system_config.h"
 
 ServerManager::ServerManager() : server(80)
 {
@@ -53,8 +52,8 @@ void ServerManager::begin()
 
     server.onNotFound([](AsyncWebServerRequest *request)
                       {
-        Serial.print("404: ");
-        Serial.println(request->url());
+        // Serial.print("404: ");
+        // Serial.println(request->url());
         request->send(404, "text/plain", "Not Found"); });
 
     server.begin();

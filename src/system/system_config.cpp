@@ -26,11 +26,13 @@ void SystemConfig::begin()
     Serial.println("[SystemConfig] Starting managers...");
     
     // Each manager handles its own initialization
+    actuators.begin();
+    sensors.begin();
     wifi.begin();
     server.begin();
-    sensors.begin();
-    actuators.begin();
     
     initialized = true;
-    Serial.println("[SystemConfig] All managers started");
+    Serial.println("\n[SystemConfig] Delayed 5 seconds to ensure all the initialization complete.");
+    delay(2000);
+    Serial.println("[SystemConfig] All managers started\n");
 }

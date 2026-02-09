@@ -1,6 +1,7 @@
 #include "manager/system/wifi_manager.h"
 #include "config/private/wifi_secrets.h" //* We'll define WIFI_SSID and WIFI_PASSWORD here if not provided
 
+
 WiFiManager::WiFiManager()
     : _ssid(WIFI_SSID),
       _password(WIFI_PASSWORD),
@@ -34,7 +35,7 @@ void WiFiManager::connect()
     _attemptCount++;
     _connected = false;
 
-    WiFiManager::update(); 
+    WiFiManager::update();
 }
 
 void WiFiManager::update()
@@ -63,8 +64,27 @@ void WiFiManager::onConnected()
 {
     _connected = true;
     _attemptCount = 0;
+
     Serial.print("[WiFi] Connected! IP: ");
     Serial.println(WiFi.localIP());
+
+    // ---- NTP CONFIG ----
+    struct tm timeinfo;
+    configTime(0, 0, "pool.ntp.org", "time.nist.gov");
+    setenv("TZ", "PHT-8", 1);
+    tzset();
+    Serial.println("[WiFi] Waiting for NTP time sync...");
+
+    if (getLocalTime(&timeinfo, 10000))
+    { // wait up to 10s
+
+        Serial.println("[WiFi] Time synchronized");
+    }
+    else
+    {
+        Serial.println("[WiFi] NTP sync failed");
+    }
+
     Serial.println("Server running");
 }
 
@@ -74,36 +94,25 @@ void WiFiManager::onDisconnected()
     Serial.println("[WiFi] Disconnected.");
 }
 
-String WiFiManager::getStatus() const
+String WiFiManager::getRealTime()
 {
-    switch (WiFi.status())
+    unsigned long currentMillis = millis();
+
+    if (currentMillis - _lastTimeUpdate >= TIME_INTERVAL)
     {
-    case WL_IDLE_STATUS:
-        return "Idle";
-    case WL_NO_SSID_AVAIL:
-        return "No SSID Available";
-    case WL_SCAN_COMPLETED:
-        return "Scan Completed";
-    case WL_CONNECTED:
-        return "Connected";
-    case WL_CONNECT_FAILED:
-        return "Connect Failed";
-    case WL_CONNECTION_LOST:
-        return "Connection Lost";
-    case WL_DISCONNECTED:
-        return "Disconnected";
-    default:
-        return "Unknown";
+        _lastTimeUpdate = currentMillis;
+
+        struct tm timeinfo;
+        if (getLocalTime(&timeinfo))
+        {
+            char buffer[5]; // HHMM
+            snprintf(buffer, sizeof(buffer), "%02d%02d",
+                     timeinfo.tm_hour,
+                     timeinfo.tm_min);
+
+            _cachedTime = buffer;
+        }
     }
-}
 
-String WiFiManager::getIPAddress() const
-{
-    return WiFi.localIP().toString();
+    return _cachedTime;
 }
-
-int WiFiManager::getRSSI() const
-{
-    return WiFi.RSSI();
-}
-

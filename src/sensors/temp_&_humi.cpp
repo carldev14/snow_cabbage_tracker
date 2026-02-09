@@ -1,4 +1,5 @@
-#include <manager/sensors_manager.h>
+#include <config/system_config.h>
+
 
 float SensorsManager::getHumi()
 {
