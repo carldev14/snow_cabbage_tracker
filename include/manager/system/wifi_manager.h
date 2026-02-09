@@ -40,9 +40,10 @@ public:
 private:
     const char *_ssid;
     const char *_password;
+    String combineHourMin(int hour, int min);
     bool _connected;
     unsigned long _lastTimeUpdate = 0;
-    const unsigned long TIME_INTERVAL = 1000 * 60 * 3; // 5 seconds
+    const unsigned long TIME_INTERVAL = 1000 * 60 * 3; // 3 hours
     String _cachedTime = "----";
     unsigned long _lastAttemptTime;
     int _attemptCount;
