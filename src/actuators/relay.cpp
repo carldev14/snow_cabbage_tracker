@@ -1,4 +1,4 @@
-#include <manager/actuators_manager.h>
+#include <config/system_config.h>
 
 /**
  * ? Reminder to keep in mind when working with relays:
@@ -19,49 +19,62 @@ void useRelay(int pin, int value, String name)
 {
     static unsigned long lastToggleTime = 0;
     unsigned long now = millis();
-    
+
     // === PROTECTION 1: DEBOUNCE (100ms) ===
-    if (now - lastToggleTime < 100) {
-        // Serial.println("SAFETY: Toggled too fast (min 100ms)");
+    if (now - lastToggleTime < 100)
+    {
+        Serial.println("\n[Relay] SAFETY: Toggled too fast (min 100ms)");
         return;
     }
-    
+
     // === LOGIC: Convert value to signal (Active-LOW) ===
     // value = HIGH: We want device ON -> send LOW to Active-LOW relay
     // value = LOW: We want device OFF -> send HIGH to Active-LOW relay
     bool signalToSend = (value == HIGH) ? LOW : HIGH;
-    
+
     // === PROTECTION 2: CHECK CURRENT STATE ===
     int currentSignal = digitalRead(pin);
-    if (currentSignal == signalToSend) {
+    if (currentSignal == signalToSend)
+    {
         // Already in correct state
         // Serial.print(name);
         // Serial.print(" already ");
         // Serial.println(value == HIGH ? "ON" : "OFF");
         return; // CRITICAL: Stop here!
     }
-    
+
     // === PROTECTION 3: ARC SUPPRESSION ===
     // Only needed when turning OFF (signal: LOW -> HIGH)
-    if (currentSignal == LOW && signalToSend == HIGH) {
+    if (currentSignal == LOW && signalToSend == HIGH)
+    {
         delay(10);
     }
-    
+
     // === EXECUTE ===
     digitalWrite(pin, signalToSend);
     lastToggleTime = now;
-    
+
     // === LOGGING ===
     // Serial.print(name);
     // Serial.print(" -> ");
     // Serial.println(value == HIGH ? "ON" : "OFF");
-    
 }
-
 
 void ActuatorsManager::toggleArtificialLight(bool turnOn)
 {
-    useRelay(SystemConfig::LED_STRIP_PIN, turnOn ? HIGH : LOW, "LED Strip");
+    //? convert the getRealTime String, into int for
+    //? comparing to the time, if night or morning.
+    int time = wifi.getRealTime().toInt();
+
+    //? Only turned on from the time it lit up (1800 => 6pm), until 300 (3 am)
+    if (turnOn && (time >= 1800 || time <= 300))
+    {
+        useRelay(SystemConfig::LED_STRIP_PIN, HIGH, "Led Strip");
+    }
+    else
+    {
+        useRelay(SystemConfig::LED_STRIP_PIN, LOW, "Led Strip");
+    }
 }
 
 void ActuatorsManager::toggleWaterPump(bool turnOn)
