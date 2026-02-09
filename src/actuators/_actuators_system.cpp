@@ -1,4 +1,4 @@
-#include "manager/actuators_manager.h"
+#include <config/system_config.h>
 
 ActuatorsManager::ActuatorsManager()
 {
@@ -14,6 +14,11 @@ void ActuatorsManager::begin()
 
     pinMode(SystemConfig::WATER_PUMP_PIN, OUTPUT);
     pinMode(SystemConfig::LED_STRIP_PIN, OUTPUT);
+
+    // Initial value; to ensure that the component will not
+    // Consume any power when initialization.
+    digitalWrite(SystemConfig::LED_STRIP_PIN, HIGH);  // OFF for Active-LOW relay
+    digitalWrite(SystemConfig::WATER_PUMP_PIN, HIGH); // OFF for Active-LOW relay
 
     //* For buzzer
     //* An active type buzzer, just need HIGH/LOW signal to turn on/off.
