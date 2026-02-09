@@ -1,5 +1,3 @@
-#include <manager/sensors_manager.h>
-#include <manager/actuators_manager.h>
 #include <config/system_config.h>
 #include <CSE_MillisTimer.h>
 
