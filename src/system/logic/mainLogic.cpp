@@ -31,7 +31,8 @@ void LogicManager::runNightMode()
     //? convert the getRealTime String, into int for
     //? comparing to the time, if night or morning.
     int time = wifi.getRealTime().toInt();
-    
+    Serial.println("[TIME]: " + time);
+
     //? if the time is 1800 above, it means that it is night time
     //? Otherwise, it isn't.
     if (time > 1800)
