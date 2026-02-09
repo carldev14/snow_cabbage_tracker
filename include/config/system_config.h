@@ -1,13 +1,13 @@
 #pragma once
 #include <Arduino.h>
 
-// Forward declarations only
-class ServerManager;
-class WiFiManager;
-class SensorsManager;
-class ActuatorsManager;
+// Include actual manager headers for complete type
+#include "manager/system/wifi_manager.h"
+#include "manager/system/server_manager.h"
+#include "manager/sensors_manager.h"
+#include "manager/actuators_manager.h"
 
-// Global instance declarations
+//* Global instance declarations
 extern WiFiManager wifi;
 extern ServerManager server;
 extern SensorsManager sensors;
