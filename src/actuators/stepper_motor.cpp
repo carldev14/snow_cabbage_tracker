@@ -52,14 +52,14 @@ void ActuatorsManager::stepperBegin()
 
 void ActuatorsManager::openCover()
 {
-    Serial.println("\n[Stepper] Command: OPEN cover");
+    // Serial.println("\n[Stepper] Command: OPEN cover");
     coverTargetPosition = COVER_OPEN_POSITION;
     //? Movement will happen in updateStepper(), called from loop()
 }
 
 void ActuatorsManager::closeCover()
 {
-    Serial.println("\n[Stepper] Command: CLOSE cover");
+    // Serial.println("\n[Stepper] Command: CLOSE cover");
     coverTargetPosition = COVER_CLOSED_POSITION;
     //? Movement will happen in updateStepper(), called from loop()
 }
