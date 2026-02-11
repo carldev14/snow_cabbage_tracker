@@ -34,6 +34,8 @@ void ActuatorsManager::stepperBegin()
     stepper.setMaxSpeed(1000);                  // Steps per second
     stepper.setAcceleration(400);
 
+    Serial.println("[Stepper Motor]" + coverState);
+    
     // The condition where restored the previous state of the stepper motor
     if (coverState == COVER_OPEN)
     {
