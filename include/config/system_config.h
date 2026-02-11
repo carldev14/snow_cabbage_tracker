@@ -25,7 +25,6 @@ public:
     //** ===== PIN DEFINITIONS (for reference/access) =====
     //** SYSTEM
     static const int LED_BUILTIN = 2;
-    static const int BUTTON_PIN = 0;
 
     //** SENSORS
     static const int LIGHT_SENSOR_PIN = 34;
@@ -67,6 +66,8 @@ public:
     static ServerManager &Server() { return server; }
     static SensorsManager &Sensors() { return sensors; }
     static ActuatorsManager &Actuators() { return actuators; }
+
+
 
 private:
     SystemConfig() = default;
