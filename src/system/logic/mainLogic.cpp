@@ -28,29 +28,38 @@ void LogicManager::runRainSafety()
 
 void LogicManager::runNightMode()
 {
-    //? convert the getRealTime String, into int for
-    //? comparing to the time, if night or morning.
-    int time = wifi.getRealTime().toInt();
-    Serial.println("[TIME]: " + time);
+    // Get time as string and convert to integer
+    const char *timeStr = wifi.getRealTime(); // Returns "HHMM" format
+    int currentTime = 0;
+
+    // Safely convert string to integer
+    if (strlen(timeStr) == 4)
+    {
+        currentTime = atoi(timeStr); // Converts "1830" to 1830
+    }
+
+    // FIXED: Compare integer values, not string pointer
+    Serial.printf("[TIME]: %d\n", currentTime);
 
     //? if the time is 1800 above, it means that it is night time
     //? Otherwise, it isn't.
-    if (time > 1800)
+    if (currentTime >= 1800) // Changed > to >= for clarity
     {
         Serial.println("[Logic] Night detected, turning ON LED strip");
         actuators.toggleArtificialLight(true);
-        actuators.openCover();
+        actuators.closeCover();
     }
     else
     {
         Serial.println("[Logic] Day detected, turning OFF LED strip");
         actuators.toggleArtificialLight(false);
-        actuators.closeCover();
+        actuators.openCover();
     }
 }
 
 void LogicManager::runSprinkler()
 {
+
     float moist1 = sensors.getSoilMoistData(1);
     float moist2 = sensors.getSoilMoistData(2);
     float moist3 = sensors.getSoilMoistData(3);
@@ -61,11 +70,15 @@ void LogicManager::runSprinkler()
         {
             Serial.println("[Logic] Soil is dry, turning ON water pump");
             actuators.toggleWaterPump(true);
+            // digitalWrite(SystemConfig::WATER_PUMP_PIN, HIGH);
+            Serial.println("[Water pump]" + digitalRead(SystemConfig::WATER_PUMP_PIN));
         }
         else
         {
             Serial.println("[Logic] Soil is moist enough, turning OFF water pump");
             actuators.toggleWaterPump(false);
+            // digitalWrite(SystemConfig::WATER_PUMP_PIN, LOW);
+            Serial.println("[Water pump]" + digitalRead(SystemConfig::WATER_PUMP_PIN));
         }
     }
     else
@@ -76,27 +89,28 @@ void LogicManager::runSprinkler()
 
 void LogicManager::runLogic()
 {
-    // Run Wifi updates
-    wifi.update();
-
-    actuators.runStepper();
-
-    // Start timer on first run
-    if (!logicTimer.isRunning())
-    {
-        logicTimer.start();
-    }
-
-    // Check if 5 seconds have elapsed
-    if (logicTimer.isElapsed())
+    if (wifi.isTimeSynchronized)
     {
 
-        // Restart timer for next interval
-        logicTimer.start();
+        actuators.runStepper();
 
-        // Run all logic functions
-        // runRainSafety();
-        runSprinkler();
-        runNightMode();
+        // Start timer on first run
+        if (!logicTimer.isRunning())
+        {
+            logicTimer.start();
+        }
+
+        // Check if 5 seconds have elapsed
+        if (logicTimer.isElapsed())
+        {
+
+            // Restart timer for next interval
+            logicTimer.start();
+
+            // Run all logic functions
+            // runRainSafety();
+            runSprinkler();
+            runNightMode();
+        }
     }
 }
