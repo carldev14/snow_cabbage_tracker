@@ -32,7 +32,7 @@ void SystemConfig::begin()
     sensors.begin();
     
     initialized = true;
-    Serial.println("\n[SystemConfig] Delayed 2 seconds to ensure all the initialization complete.");
+    Serial.println("\n[SystemConfig] Delayed 1 seconds to ensure all the initialization complete.");
     delay(2000);
     Serial.println("[SystemConfig] All managers started\n");
 }
