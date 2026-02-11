@@ -32,10 +32,10 @@ void SensorsManager::begin()
     pinMode(SystemConfig::SOIL_SENSOR_1, INPUT);
     pinMode(SystemConfig::SOIL_SENSOR_2, INPUT);
     pinMode(SystemConfig::SOIL_SENSOR_3, INPUT);
-
-    delay(2000); //* DHT11 needs startup time
-
-    Serial.println("All sensors initialized");
+    
+    Serial.println("\n[DHT11] Needs to be initialized first.");
+    delay(200); // small delay
+    Serial.println("[Sensors] All sensors initialized");
 }
 
 
