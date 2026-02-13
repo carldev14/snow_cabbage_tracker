@@ -20,15 +20,14 @@ public:
     void begin();
 
     //* Dht11
-    float getTemp();
-    float getHumi();
-    float getSoilMoistData(int SMNum);
+    uint8_t getDHTData(const bool isTemp, const bool getInitial = false);
+    uint16_t getSoilMoistData(int SMNum);
 
     //* Photoresistor
-    bool isDimLightDetected();    //* this will trigger the led strips
-    
-    const int DRY_THRESHOLD = 30; // Below 30% = DRY
-    const int WET_THRESHOLD = 70; // Above 70% = WET
+    bool isDimLightDetected(); //* this will trigger the led strips
+
+    const uint8_t DRY_THRESHOLD = 30; // Below 30% = DRY
+    const uint8_t WET_THRESHOLD = 70; // Above 70% = WET
 private:
     DHT *dhtSensor;
 

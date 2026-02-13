@@ -23,43 +23,37 @@ public:
     void begin();
 
     //** ===== PIN DEFINITIONS (for reference/access) =====
-    //** SYSTEM
-    static const int LED_BUILTIN = 2;
 
     //** SENSORS
-    static const int LIGHT_SENSOR_PIN = 34;
-    static const int SOIL_SENSOR_1 = 35;
-    static const int SOIL_SENSOR_2 = 36;
-    static const int SOIL_SENSOR_3 = 39;
-    static const int DHT11_PIN = 19;
-    static const int DHT11_TYPE = 11;
+    
+    static const uint8_t SOIL_SENSOR_1 = 35;
+    static const uint8_t SOIL_SENSOR_2 = 36;
+    static const uint8_t SOIL_SENSOR_3 = 39;
+    static const uint8_t DHT11_PIN = 19;
+    static const uint8_t DHT11_TYPE = 11;
 
     //** ACTUATORS
-    static const int BUZZER_PIN = 25;
-    static const int WATER_PUMP_PIN = 23;
-    static const int LED_STRIP_PIN = 18;
+    static const uint8_t BUZZER_PIN = 25;
+    static const uint8_t WATER_PUMP_PIN = 23;
+    static const uint8_t LED_STRIP_PIN = 18;
 
     //** STEPPER MOTOR
-    static const int STEP_PIN = 26; // Step pin for stepper driver
-    static const int DIR_PIN = 27;  // Direction pin for stepper driver
+    static const uint8_t STEP_PIN = 26; // Step pin for stepper driver
+    static const uint8_t DIR_PIN = 27;  // Direction pin for stepper driver
     //* SLEEP_PIN is used to control power to the stepper driver. Set HIGH to enable the driver and LOW to put it to sleep (saving power and preventing overheating when not in use).
     //* Both reset pin and sleep pin are connected together for simplicity, so we can just control the sleep pin to manage power to the driver.
-    static const int SLEEP_PIN = 22;
+    static const uint8_t SLEEP_PIN = 22;
 
     //** I2C
-    static const int I2C_SDA = 33;
-    static const int I2C_SCL = 32;
-
-    //** UART FOR CAMERA
-    static const int CAMERA_TX = 16;
-    static const int CAMERA_RX = 17;
+    static const uint8_t I2C_SDA = 33;
+    static const uint8_t I2C_SCL = 32;
 
     //** ===== PIN GROUP ARRAYS =====
-    static const int SOIL_SENSORS[];
-    static const int NUM_SOIL_SENSORS;
+    static const uint8_t SOIL_SENSORS[];
+    static const uint8_t NUM_SOIL_SENSORS;
 
-    static const int ACTUATOR_PINS[];
-    static const int NUM_ACTUATORS;
+    static const uint8_t ACTUATOR_PINS[];
+    static const uint8_t NUM_ACTUATORS;
 
     //** ===== CONVENIENCE ACCESSORS =====
     static WiFiManager &WiFi() { return wifi; }
