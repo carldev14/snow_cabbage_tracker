@@ -48,7 +48,7 @@ private:
     const unsigned long TIME_INTERVAL = 1000 * 60 * 3; // 3 hours
     char _cachedTime[6];
     unsigned long _lastAttemptTime;
-    int _attemptCount;
+    uint8_t _attemptCount;
 
     void connect();
     void onConnected();

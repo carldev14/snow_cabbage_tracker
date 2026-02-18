@@ -1,11 +1,13 @@
 #include <config/system_config.h>
 #include "AccelStepper.h"
-
-Preferences prefs;
+#include <EEPROM.h>
 
 // Define your open/close positions (adjust as needed)
 #define COVER_OPEN_POSITION 5000
 #define COVER_CLOSED_POSITION 0
+
+// EEPROM address for storing cover state
+#define COVER_STATE_ADDR 0
 
 enum CoverState
 {
@@ -21,22 +23,33 @@ long coverTargetPosition = COVER_OPEN_POSITION; // Default target
 
 void ActuatorsManager::stepperBegin()
 {
-    prefs.begin("cover", false);
-
-    coverState = (CoverState)prefs.getUChar("state", COVER_CLOSED);
-
-    // Set pin modes for your driver
-    pinMode(SystemConfig::STEP_PIN, OUTPUT);
-    pinMode(SystemConfig::DIR_PIN, OUTPUT);
+    // Initialize EEPROM (allocate enough space - 512 bytes is typical)
+    EEPROM.begin();
+    
     pinMode(SystemConfig::SLEEP_PIN, OUTPUT);
 
-    digitalWrite(SystemConfig::SLEEP_PIN, LOW); // Disable driver on startup
-    stepper.setMaxSpeed(1000);                  // Steps per second
+    // Wake up the driver in initialization
+    digitalWrite(SystemConfig::SLEEP_PIN, HIGH);
+    pinMode(SystemConfig::STEP_PIN, OUTPUT);
+    pinMode(SystemConfig::DIR_PIN, OUTPUT);
+    
+    Serial.println(digitalRead(SystemConfig::SLEEP_PIN));
+
+    // Read cover state from EEPROM
+    coverState = (CoverState)EEPROM.read(COVER_STATE_ADDR);
+    
+    // Validate the read value (in case EEPROM was uninitialized)
+    if (coverState != COVER_CLOSED && coverState != COVER_OPEN) {
+        coverState = COVER_CLOSED;  // Default to closed if invalid
+    }
+    
+    Serial.println(coverState);
+    stepper.setMaxSpeed(1000); // Steps per second
     stepper.setAcceleration(400);
 
-    Serial.println("[Stepper Motor]" + coverState);
-    
-    // The condition where restored the previous state of the stepper motor
+    Serial.println("[Stepper Motor]" + String(coverState));
+
+    // Restore the previous state of the stepper motor
     if (coverState == COVER_OPEN)
     {
         stepper.setCurrentPosition(COVER_OPEN_POSITION);
@@ -50,54 +63,55 @@ void ActuatorsManager::stepperBegin()
 
     Serial.println("[Stepper] Restored state: " +
                    String(coverState == COVER_OPEN ? "OPEN" : "CLOSED"));
+
+    delay(2000);
 }
 
 void ActuatorsManager::openCover()
 {
-    // Serial.println("\n[Stepper] Command: OPEN cover");
     coverTargetPosition = COVER_OPEN_POSITION;
-    //? Movement will happen in updateStepper(), called from loop()
+    // Movement will happen in runStepper(), called from loop()
 }
 
 void ActuatorsManager::closeCover()
 {
-    // Serial.println("\n[Stepper] Command: CLOSE cover");
     coverTargetPosition = COVER_CLOSED_POSITION;
-    //? Movement will happen in updateStepper(), called from loop()
+    // Movement will happen in runStepper(), called from loop()
 }
 
-//! CRITICAL: This function must be called continuously from your main loop()
+// CRITICAL: This function must be called continuously from your main loop()
 void ActuatorsManager::runStepper()
 {
-    //? If we're not at the target position, we need to move
+    // If we're not at the target position, we need to move
     if (stepper.currentPosition() != coverTargetPosition)
     {
-
-        //? If we're not already moving, start a new move
+        // If we're not already moving, start a new move
         if (!coverIsMoving)
         {
+            digitalWrite(SystemConfig::SLEEP_PIN, HIGH);
+
             Serial.println("[Stepper] Starting movement...");
-            digitalWrite(SystemConfig::SLEEP_PIN, HIGH); // Wake driver
-            stepper.moveTo(coverTargetPosition);         // Set target
+            stepper.moveTo(coverTargetPosition); // Set target
             coverIsMoving = true;
         }
 
-        //* Keep the driver enabled and execute one step
-        digitalWrite(SystemConfig::SLEEP_PIN, HIGH);
+        // Keep the driver enabled and execute one step
         bool stillMoving = stepper.run(); // Returns true while moving
 
         if (!stillMoving)
         {
-            //* Movement just completed
+            // Movement just completed
+            digitalWrite(SystemConfig::SLEEP_PIN, LOW);
+
             Serial.println("[Stepper] Move complete. Position: " + String(stepper.currentPosition()));
-            digitalWrite(SystemConfig::SLEEP_PIN, LOW); // Sleep driver
             coverIsMoving = false;
 
             coverState = (coverTargetPosition == COVER_OPEN_POSITION)
                              ? COVER_OPEN
                              : COVER_CLOSED;
 
-            prefs.putUChar("state", coverState);
+            // Save state to EEPROM
+            EEPROM.write(COVER_STATE_ADDR, coverState);
 
             Serial.println("[Stepper] Move complete, state saved: " +
                            String(coverState == COVER_OPEN ? "OPEN" : "CLOSED"));

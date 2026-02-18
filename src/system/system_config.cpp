@@ -1,19 +1,17 @@
 #include "config/system_config.h"
 
 // Include actual headers
-#include "manager/system/wifi_manager.h"
-#include "manager/system/server_manager.h"
 #include "manager/sensors_manager.h"
 #include "manager/actuators_manager.h"
+#include "manager/system/display.h"
 
 // Define global instances
-WiFiManager wifi;
-ServerManager server;
 SensorsManager sensors;
 ActuatorsManager actuators;
+Display ui;
 
 // ✅ IMPLEMENTATION of get() method (moved from header)
-SystemConfig& SystemConfig::get()
+SystemConfig &SystemConfig::get()
 {
     static SystemConfig instance;
     return instance;
@@ -21,18 +19,25 @@ SystemConfig& SystemConfig::get()
 
 void SystemConfig::begin()
 {
-    if (initialized) return;
-    
+
     Serial.println("[SystemConfig] Starting managers...");
-    
-    // Each manager handles its own initialization
-    wifi.begin();
-    server.begin();
+
+    //* Each manager handles its own initialization
+
     actuators.begin();
     sensors.begin();
-    
+
+    //* Get the initial Data of DHT11 (TEMP and HUMI)
+    sensors.getDHTData(false, true);
+    sensors.getDHTData(true, true);
+
     initialized = true;
-    Serial.println("\n[SystemConfig] Delayed 1 seconds to ensure all the initialization complete.");
-    delay(2000);
-    Serial.println("[SystemConfig] All managers started\n");
+
+    // //? After the initializing process of managers; next initialize the diplay while provided a
+    // //? elegant booting startup.
+    // if (initialized)
+    //     ui.initializing();
+
+    // Serial.println("\n[SystemConfig] Delayed 1 seconds to ensure all the initialization complete.");
+    // Serial.println("[SystemConfig] All managers started\n");
 }

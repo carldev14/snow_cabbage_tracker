@@ -28,10 +28,10 @@ void SensorsManager::begin()
     dhtSensor->begin();
 
     //* Initializes Sensors
-    pinMode(SystemConfig::LIGHT_SENSOR_PIN, INPUT); //* Define the light sensor pin as INPUT
     pinMode(SystemConfig::SOIL_SENSOR_1, INPUT);
     pinMode(SystemConfig::SOIL_SENSOR_2, INPUT);
     pinMode(SystemConfig::SOIL_SENSOR_3, INPUT);
+    pinMode(SystemConfig::LIGHT_SENSOR, INPUT);
     
     Serial.println("\n[DHT11] Needs to be initialized first.");
     delay(200); // small delay

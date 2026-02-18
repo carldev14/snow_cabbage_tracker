@@ -38,9 +38,9 @@ void useRelay(int pin, bool deviceShouldBeOn, String name)
     lastToggleTime = now;
 
     // === LOGGING ===
-    Serial.print("[Relay ");
-    Serial.print(name);
-    Serial.print("] Device ");
+    // Serial.print("[Relay ");
+    // Serial.print(name);
+    // Serial.print("] Device ");
     Serial.println(deviceShouldBeOn ? "ON" : "OFF");
 }
 
@@ -49,41 +49,8 @@ void useRelay(int pin, bool deviceShouldBeOn, String name)
 
 void ActuatorsManager::toggleArtificialLight(bool turnOn)
 {
-    // Get time as string and convert to integer
-    const char *timeStr = wifi.getRealTime(); // Returns "HHMM" format
-    int currentTime;
 
-    // Safely convert string to integer
-    if (strlen(timeStr) == 4)
-    {
-        currentTime = atoi(timeStr); // Converts "1830" to 1830
-    }
-    else
-    {
-        currentTime = 0; // Default if invalid
-    }
-
-    // === CORRECTED TIME LOGIC ===
-    // Turn on ONLY between 18:00 (6PM) and 03:00 (3AM)
-    // Special handling for overnight period
-    bool shouldBeOn = false;
-
-    if (turnOn)
-    {
-        if (currentTime >= 1800)
-        {
-            // After 6PM: always on
-            shouldBeOn = true;
-        }
-        else if (currentTime <= 300)
-        {
-            // Before 3AM: also on (overnight)
-            shouldBeOn = true;
-        }
-        // Between 3:01AM and 5:59PM: off
-    }
-
-    useRelay(SystemConfig::LED_STRIP_PIN, shouldBeOn, "Led Strip");
+    useRelay(SystemConfig::LED_STRIP_PIN, turnOn, "Led Strip");
 }
 
 void ActuatorsManager::toggleWaterPump(bool turnOn)

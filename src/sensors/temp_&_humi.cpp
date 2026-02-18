@@ -1,26 +1,38 @@
 #include <config/system_config.h>
 
+unsigned long DHTTimer = 0;
+const unsigned long DHTInterval = 120000UL; // 2 minutes
 
-float SensorsManager::getHumi()
+static uint8_t cachedHumiValue = 0; // Cached temp
+static uint8_t cachedTempValue = 0; // Cached temp
+
+uint8_t SensorsManager::getDHTData(const bool isTemp, const bool getInitial)
 {
-
-    float humidity = dhtSensor->readHumidity();
-    if (isnan(humidity))
+    if (getInitial)
     {
-        return -1; // Return an error value
+        uint8_t temperature = dhtSensor->readTemperature();
+        uint8_t humidity = dhtSensor->readHumidity();
+
+        if (!isnan(temperature))
+            cachedTempValue = temperature;
+
+        if (!isnan(humidity))
+            cachedHumiValue = humidity;
     }
 
-    return humidity; //* 1 decimal place
-}
-
-float SensorsManager::getTemp()
-{
-
-    float temperature = dhtSensor->readTemperature();
-    if (isnan(temperature))
+    if (millis() - DHTTimer >= DHTInterval)
     {
-        return -1; // Return an error value
+        DHTTimer = millis();
+
+        uint8_t temperature = dhtSensor->readTemperature();
+        uint8_t humidity = dhtSensor->readHumidity();
+
+        if (!isnan(temperature))
+            cachedTempValue = temperature;
+
+        if (!isnan(humidity))
+            cachedHumiValue = humidity;
     }
 
-    return temperature; //* 1 decimal place
+    return isTemp ? cachedTempValue : cachedHumiValue;
 }
