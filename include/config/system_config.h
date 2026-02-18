@@ -2,16 +2,14 @@
 #include <Arduino.h>
 
 // Include actual manager headers for complete type
-#include "manager/system/wifi_manager.h"
-#include "manager/system/server_manager.h"
 #include "manager/sensors_manager.h"
 #include "manager/actuators_manager.h"
+#include "manager/system/display.h"
 
 //* Global instance declarations
-extern WiFiManager wifi;
-extern ServerManager server;
 extern SensorsManager sensors;
 extern ActuatorsManager actuators;
+extern Display ui;
 
 class SystemConfig
 {
@@ -25,11 +23,12 @@ public:
     //** ===== PIN DEFINITIONS (for reference/access) =====
 
     //** SENSORS
-    
-    static const uint8_t SOIL_SENSOR_1 = 35;
-    static const uint8_t SOIL_SENSOR_2 = 36;
-    static const uint8_t SOIL_SENSOR_3 = 39;
-    static const uint8_t DHT11_PIN = 19;
+
+    static const uint8_t SOIL_SENSOR_1 = A0;
+    static const uint8_t SOIL_SENSOR_2 = A1;
+    static const uint8_t SOIL_SENSOR_3 = A3;
+    static const uint8_t LIGHT_SENSOR = A4;
+    static const uint8_t DHT11_PIN = 2;
     static const uint8_t DHT11_TYPE = 11;
 
     //** ACTUATORS
@@ -44,10 +43,6 @@ public:
     //* Both reset pin and sleep pin are connected together for simplicity, so we can just control the sleep pin to manage power to the driver.
     static const uint8_t SLEEP_PIN = 22;
 
-    //** I2C
-    static const uint8_t I2C_SDA = 33;
-    static const uint8_t I2C_SCL = 32;
-
     //** ===== PIN GROUP ARRAYS =====
     static const uint8_t SOIL_SENSORS[];
     static const uint8_t NUM_SOIL_SENSORS;
@@ -56,12 +51,9 @@ public:
     static const uint8_t NUM_ACTUATORS;
 
     //** ===== CONVENIENCE ACCESSORS =====
-    static WiFiManager &WiFi() { return wifi; }
-    static ServerManager &Server() { return server; }
     static SensorsManager &Sensors() { return sensors; }
     static ActuatorsManager &Actuators() { return actuators; }
-
-
+    static Display &UI() { return ui; }
 
 private:
     SystemConfig() = default;
