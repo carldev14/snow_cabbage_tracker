@@ -4,7 +4,7 @@ uint16_t SensorsManager::getSoilMoistData(int SMNum)
 {
     static unsigned long lastReadTime[3] = {0, 0, 0};
     static uint16_t cachedPercentage[3] = {0, 0, 0}; // ✓ Store PERCENTAGE, not raw
-    const unsigned long READ_INTERVAL = 120000UL;    // ✓ 2 minutes = 120,000 ms (FIXED)
+    const unsigned long READ_INTERVAL = 1000UL;    // ✓ 2 minutes = 120,000 ms (FIXED)
 
     int index = SMNum - 1;
     if (index < 0 || index > 2)
@@ -63,7 +63,7 @@ uint16_t SensorsManager::getSoilMoistData(int SMNum)
         }
 
         Serial.print("[Soil] Raw=");
-        Serial.print(SMNum);
+        Serial.print(soilValue);
         Serial.print(", Moist=");
         Serial.print(soilValue);
         Serial.print("% (Dry=");

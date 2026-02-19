@@ -3,12 +3,10 @@
 // Include actual headers
 #include "manager/sensors_manager.h"
 #include "manager/actuators_manager.h"
-#include "manager/system/display.h"
 
 // Define global instances
 SensorsManager sensors;
 ActuatorsManager actuators;
-Display ui;
 
 // ✅ IMPLEMENTATION of get() method (moved from header)
 SystemConfig &SystemConfig::get()

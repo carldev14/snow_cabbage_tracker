@@ -22,6 +22,8 @@ void LogicManager::runRainSafety()
     {
         // Serial.println("[Logic] Rain likely");
         actuators.closeCover();
+        actuators.runBuzzerPattern();
+
     }
     else
     {
@@ -36,6 +38,7 @@ void LogicManager::runNightMode()
     {
         Serial.println("[Logic] Night detected, turning ON LED strip");
         actuators.closeCover();
+        actuators.runBuzzerPattern();
         actuators.toggleArtificialLight(true);
     }
     else
@@ -57,15 +60,17 @@ void LogicManager::runSprinkler()
         uint16_t finalMoist = (moist1 + moist2 + moist3); // sum them up, then next is to compared them
         if (finalMoist < sensors.DRY_THRESHOLD)
         {
-            // Serial.println("[Logic] Soil is dry, turning ON water pump");
+            Serial.println("[Logic] Soil is dry, turning ON water pump");
             actuators.toggleWaterPump(true);
-            // Serial.println("[Water pump] " + String(digitalRead(SystemConfig::WATER_PUMP_PIN)));
+            actuators.runBuzzerPattern();
+
+            Serial.println("[Water pump] " + String(digitalRead(SystemConfig::WATER_PUMP_PIN)));
         }
         else
         {
-            // Serial.println("[Logic] Soil is moist enough, turning OFF water pump");
+            Serial.println("[Logic] Soil is moist enough, turning OFF water pump");
             actuators.toggleWaterPump(false);
-            // Serial.println("[Water pump] " + String(digitalRead(SystemConfig::WATER_PUMP_PIN)));
+            Serial.println("[Water pump] " + String(digitalRead(SystemConfig::WATER_PUMP_PIN)));
         }
     }
     else
