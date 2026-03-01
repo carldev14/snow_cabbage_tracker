@@ -22,17 +22,13 @@ public:
     //* Dht11
     uint8_t getDHTData(const bool isTemp, const bool getInitial = false);
     uint16_t getSoilMoistData(int SMNum);
+    bool getSoilMoistureStatus(); //* this will trigger the water pump  
 
     //* Photoresistor
     bool isDimLightDetected(); //* this will trigger the led strips
 
-    const uint8_t DRY_THRESHOLD = 30; // Below 30% = DRY
-    const uint8_t WET_THRESHOLD = 70; // Above 70% = WET
+    const uint16_t WET_THRESHOLD = 500; // combination threshold of three sensor
+    // const uint8_t WET_THRESHOLD = 1000; // Above 70% = WET
 private:
     DHT *dhtSensor;
-
-    //* //* Other sensor SystemConfig
-    //* const int RAIN_SENSOR_PIN = A0;
-    //* const int SOIL_SENSOR_PIN = A1;
-    //* const int LDR_PIN = A2;
 };

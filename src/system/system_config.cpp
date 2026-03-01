@@ -3,10 +3,12 @@
 // Include actual headers
 #include "manager/sensors_manager.h"
 #include "manager/actuators_manager.h"
+#include "manager/system/display.h"
 
 // Define global instances
 SensorsManager sensors;
 ActuatorsManager actuators;
+DisplayManager display;
 
 // ✅ IMPLEMENTATION of get() method (moved from header)
 SystemConfig &SystemConfig::get()
@@ -24,6 +26,9 @@ void SystemConfig::begin()
 
     actuators.begin();
     sensors.begin();
+    display.begin();
+
+    delay(1000);
 
     //* Get the initial Data of DHT11 (TEMP and HUMI)
     sensors.getDHTData(false, true);

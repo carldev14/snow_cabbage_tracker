@@ -1,0 +1,260 @@
+[
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/CDC.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/CDC.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/CDC.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/CDC.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial0.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial0.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial1.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial1.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial2.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial2.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial3.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial3.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/IPAddress.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/IPAddress.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/IPAddress.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/IPAddress.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/PluggableUSB.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/PluggableUSB.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Print.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Print.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Print.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/Print.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Stream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Stream.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Stream.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/Stream.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Tone.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Tone.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/Tone.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/Tone.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/USBCore.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/USBCore.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/USBCore.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/USBCore.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/WInterrupts.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WInterrupts.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WInterrupts.c",
+        "output": ".pio/build/uno/FrameworkArduino/WInterrupts.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WMath.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WMath.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WMath.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/WMath.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WString.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WString.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/WString.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/WString.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/abi.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/abi.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/abi.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/hooks.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/hooks.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/hooks.c",
+        "output": ".pio/build/uno/FrameworkArduino/hooks.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/main.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/main.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/main.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/new.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/new.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/new.cpp",
+        "output": ".pio/build/uno/FrameworkArduino/new.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring.c",
+        "output": ".pio/build/uno/FrameworkArduino/wiring.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_analog.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_analog.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_analog.c",
+        "output": ".pio/build/uno/FrameworkArduino/wiring_analog.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_digital.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_digital.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_digital.c",
+        "output": ".pio/build/uno/FrameworkArduino/wiring_digital.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -mmcu=atmega328p -x assembler-with-cpp -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard -c -o .pio/build/uno/FrameworkArduino/wiring_pulse.S.o /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.S",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.S",
+        "output": ".pio/build/uno/FrameworkArduino/wiring_pulse.S.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_pulse.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.c",
+        "output": ".pio/build/uno/FrameworkArduino/wiring_pulse.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_shift.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c",
+        "output": ".pio/build/uno/FrameworkArduino/wiring_shift.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o \".pio/build/uno/libad7/Adafruit Unified Sensor/Adafruit_Sensor.cpp.o\" -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard \".pio/libdeps/uno/Adafruit Unified Sensor/Adafruit_Sensor.cpp\"",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": ".pio/libdeps/uno/Adafruit Unified Sensor/Adafruit_Sensor.cpp",
+        "output": ".pio/build/uno/libad7/Adafruit Unified Sensor/Adafruit_Sensor.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o \".pio/build/uno/libb34/DHT sensor library/DHT.cpp.o\" -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard \".pio/libdeps/uno/DHT sensor library/DHT.cpp\"",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": ".pio/libdeps/uno/DHT sensor library/DHT.cpp",
+        "output": ".pio/build/uno/libb34/DHT sensor library/DHT.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o \".pio/build/uno/libb34/DHT sensor library/DHT_U.cpp.o\" -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard \".pio/libdeps/uno/DHT sensor library/DHT_U.cpp\"",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": ".pio/libdeps/uno/DHT sensor library/DHT_U.cpp",
+        "output": ".pio/build/uno/libb34/DHT sensor library/DHT_U.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib4db/Wire/Wire.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src/Wire.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src/Wire.cpp",
+        "output": ".pio/build/uno/lib4db/Wire/Wire.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/lib4db/Wire/utility/twi.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard /home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src/utility/twi.c",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src/utility/twi.c",
+        "output": ".pio/build/uno/lib4db/Wire/utility/twi.c.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib75a/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": ".pio/libdeps/uno/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp",
+        "output": ".pio/build/uno/lib75a/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/actuators/_actuators_system.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/actuators/_actuators_system.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/actuators/_actuators_system.cpp",
+        "output": ".pio/build/uno/src/actuators/_actuators_system.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/actuators/buzzer.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/actuators/buzzer.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/actuators/buzzer.cpp",
+        "output": ".pio/build/uno/src/actuators/buzzer.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/actuators/relay.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/actuators/relay.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/actuators/relay.cpp",
+        "output": ".pio/build/uno/src/actuators/relay.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/actuators/stepper_motor.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/actuators/stepper_motor.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/actuators/stepper_motor.cpp",
+        "output": ".pio/build/uno/src/actuators/stepper_motor.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/main.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/main.cpp",
+        "output": ".pio/build/uno/src/main.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/sensors/_sensors_system.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/sensors/_sensors_system.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/sensors/_sensors_system.cpp",
+        "output": ".pio/build/uno/src/sensors/_sensors_system.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/sensors/light_detection.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/sensors/light_detection.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/sensors/light_detection.cpp",
+        "output": ".pio/build/uno/src/sensors/light_detection.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/sensors/soil_moisture.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/sensors/soil_moisture.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/sensors/soil_moisture.cpp",
+        "output": ".pio/build/uno/src/sensors/soil_moisture.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/sensors/temp_&_humi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/sensors/temp_&_humi.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/sensors/temp_&_humi.cpp",
+        "output": ".pio/build/uno/src/sensors/temp_&_humi.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/system/display.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/system/display.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/system/display.cpp",
+        "output": ".pio/build/uno/src/system/display.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/system/logic/mainLogic.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/system/logic/mainLogic.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/system/logic/mainLogic.cpp",
+        "output": ".pio/build/uno/src/system/logic/mainLogic.cpp.o"
+    },
+    {
+        "command": "/home/carl/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/system/system_config.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60119 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio/libdeps/uno/LiquidCrystal_I2C -I/home/carl/.platformio/packages/framework-arduino-avr/libraries/Wire/src \"-I.pio/libdeps/uno/DHT sensor library\" \"-I.pio/libdeps/uno/Adafruit Unified Sensor\" -I/home/carl/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/carl/.platformio/packages/framework-arduino-avr/variants/standard src/system/system_config.cpp",
+        "directory": "/mnt/programming/projects/ARDUINO/snow_cabbage_tracker",
+        "file": "src/system/system_config.cpp",
+        "output": ".pio/build/uno/src/system/system_config.cpp.o"
+    }
+]

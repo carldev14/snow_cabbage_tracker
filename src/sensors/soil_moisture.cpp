@@ -3,14 +3,15 @@
 uint16_t SensorsManager::getSoilMoistData(int SMNum)
 {
     static unsigned long lastReadTime[3] = {0, 0, 0};
-    static uint16_t cachedPercentage[3] = {0, 0, 0}; // ✓ Store PERCENTAGE, not raw
-    const unsigned long READ_INTERVAL = 1000UL;    // ✓ 2 minutes = 120,000 ms (FIXED)
+    static uint16_t cachedRawValue[3] = {0, 0, 0}; // Store RAW values, not percentage
+    const unsigned long READ_INTERVAL = 1000UL;    // Read every 1 second
 
     int index = SMNum - 1;
     if (index < 0 || index > 2)
     {
-        Serial.print("[Soil Moisture] Invalid" + SMNum);
-        return 0; // ✓ Return 0, not -1.0f (function returns uint16_t!)
+        Serial.print("[Soil Moisture] Invalid sensor: ");
+        Serial.println(SMNum);
+        return 0;
     }
 
     unsigned long now = millis();
@@ -30,11 +31,11 @@ uint16_t SensorsManager::getSoilMoistData(int SMNum)
             pin = SystemConfig::SOIL_SENSOR_3;
             break;
         default:
-            return cachedPercentage[index]; // Should never reach here
+            return cachedRawValue[index];
         }
 
         // === Read sensor (averaging) ===
-        uint32_t soilSum = 0; // ✓ Use uint32_t to prevent overflow!
+        uint32_t soilSum = 0;
         for (uint8_t i = 0; i < 10; i++)
         {
             soilSum += analogRead(pin);
@@ -42,39 +43,39 @@ uint16_t SensorsManager::getSoilMoistData(int SMNum)
         }
         uint16_t soilValue = soilSum / 10;
 
-        // === Convert to percentage ===
-        const uint16_t DRY_VALUE = 4095; // ESP32 ADC max
-        const uint16_t WET_VALUE = 1800; // Calibrate this!
+        // Just print the raw value - no percentage conversion
+        Serial.print("[Soil ");
+        Serial.print(SMNum);
+        Serial.print("] Raw=");
+        Serial.println(soilValue);
 
-        // Manual map to avoid float
-        uint16_t percentage;
-        if (soilValue <= WET_VALUE)
-        {
-            percentage = 100;
-        }
-        else if (soilValue >= DRY_VALUE)
-        {
-            percentage = 0;
-        }
-        else
-        {
-            // Map 1800-4095 to 100-0
-            percentage = (uint16_t)((DRY_VALUE - soilValue) * 100UL / (DRY_VALUE - WET_VALUE));
-        }
-
-        Serial.print("[Soil] Raw=");
-        Serial.print(soilValue);
-        Serial.print(", Moist=");
-        Serial.print(soilValue);
-        Serial.print("% (Dry=");
-        Serial.print(percentage); // Note: This seems off - are you sure percentage should be here?
-        Serial.print(", Wet=");
-        Serial.print(WET_VALUE);
-        Serial.println(")");
-        
-        cachedPercentage[index] = percentage; // ✓ Store percentage directly
+        cachedRawValue[index] = soilValue; // Store raw value
         lastReadTime[index] = now;
     }
 
-    return cachedPercentage[index]; // ✓ Returns 0-100, matches function type
+    return cachedRawValue[index]; // Returns raw ADC value (0-4095)
+}
+
+bool SensorsManager::getSoilMoistureStatus()
+{
+    getSoilMoistData(1); // Update cached value for sensor 1
+    uint16_t moist1 = getSoilMoistData(1);
+
+    if (moist1 == 0)
+    {
+        Serial.println("[Soil Moisture] Error reading sensor data");
+        
+        return false;
+    }
+
+    if (moist1 <= sensors.WET_THRESHOLD)
+    {
+        Serial.println("[Soil Moisture] Status: WET");
+        return true; // Soil is wet
+    }
+    else
+    {
+        Serial.println("[Soil Moisture] Status: DRY");
+        return false; // Soil is dry
+    }
 }

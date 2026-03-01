@@ -6,12 +6,14 @@
 // #include "manager/system/server_manager.h"
 #include "manager/sensors_manager.h"
 #include "manager/actuators_manager.h"
+#include "manager/system/display.h"
 
 //* Global instance declarations
 // // extern WiFiManager wifi;
 // extern ServerManager server;
 extern SensorsManager sensors;
 extern ActuatorsManager actuators;
+extern DisplayManager display;
 
 class SystemConfig
 {
@@ -30,14 +32,14 @@ public:
     static const int SOIL_SENSOR_1 = A0;
     static const int SOIL_SENSOR_2 = A1;
     static const int SOIL_SENSOR_3 = A5;
-    static const int LIGHT_SENSOR = A3;
-    static const int DHT11_PIN = 2;
+    static const int LIGHT_SENSOR = A2;
+    static const int DHT11_PIN = 9;
     static const int DHT11_TYPE = 11;
 
     //** ACTUATORS
     static const int BUZZER_PIN = 7;
-    static const int WATER_PUMP_PIN = 4;
-    static const int LED_STRIP_PIN = 3;
+    static const int WATER_PUMP_PIN = 6;
+    static const int LED_STRIP_PIN = 5;
 
     //** STEPPER MOTOR
     static const int STEP_PIN = 26; // Step pin for stepper driver

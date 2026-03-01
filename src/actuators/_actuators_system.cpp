@@ -17,12 +17,12 @@ void ActuatorsManager::begin()
 
     // Initial value; to ensure that the component will not
     // Consume any power when initialization.
-    digitalWrite(SystemConfig::LED_STRIP_PIN, LOW);  // OFF for Active-LOW relay
+    digitalWrite(SystemConfig::LED_STRIP_PIN, HIGH);  // OFF for Active-LOW relay
     digitalWrite(SystemConfig::WATER_PUMP_PIN, LOW); // OFF for Active-HIGH relay + transitor
 
     //* For buzzer
     //* An active type buzzer, just need HIGH/LOW signal to turn on/off.
     pinMode(SystemConfig::BUZZER_PIN, OUTPUT);
 
-    stepperBegin();
+    // stepperBegin();
 }

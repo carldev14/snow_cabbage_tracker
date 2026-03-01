@@ -13,7 +13,7 @@ public:
     void runLogic();
 
 private:
-    void runRainSafety(); // run if rain is likely to protect the plant (close cover, turn on LED strip, etc.)
+    void enviromentalSafety(); // run if rain is likely to protect the plant (close cover, turn on LED strip, etc.)
     void runNightMode();  // run if it's night to turn on the LED strip
     void runSprinkler();  // run the water pump if soil is dry
 };

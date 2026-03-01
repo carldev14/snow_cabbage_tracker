@@ -1,59 +1,62 @@
 #include <config/system_config.h>
 
-// Simple relay control with Active-LOW logic
-void useRelay(int pin, bool deviceShouldBeOn, String name)
+// === FIX 1: Improved relay control with proper debouncing ===
+void useRelay(int pin, bool deviceShouldBeOn, bool reverseLogic = false, String name = "")
 {
     static unsigned long lastToggleTime = 0;
+    static unsigned long lastDebounceTime = 0;
     unsigned long now = millis();
-
-    // === PROTECTION 1: DEBOUNCE (100ms) ===
-    if (now - lastToggleTime < 100)
+    
+    // Apply reverse logic if needed (for active-LOW relays)
+    bool actualState = reverseLogic ? !deviceShouldBeOn : deviceShouldBeOn;
+    
+    // Read current pin state
+    int currentSignal = digitalRead(pin);
+    bool currentState = (currentSignal == HIGH);
+    
+    // === FIX 2: Proper debounce - prevent rapid toggling ===
+    if (now - lastToggleTime < 500)  // 500ms minimum between toggles
     {
-        Serial.println("\n[Relay " + name + " SAFETY]: Toggled too fast (min 100ms)");
+        if (now - lastDebounceTime > 1000) // Print warning every second max
+        {
+            Serial.println("[Relay " + name + "] ⚠️ Toggle ignored - too fast (min 500ms between toggles)");
+            lastDebounceTime = now;
+        }
         return;
     }
-
-    // === LOGIC: Convert desired device state to signal ===
-    // For Active-LOW relay (common type):
-    // - Device ON  -> Send LOW signal
-    // - Device OFF -> Send HIGH signal
-    // For relay with transistor (Active-High):
-    // - Device ON  -> Send HIGH signal
-    // - Device OFF -> Send LOW signal
-    int signalToSend;
-
-    // Relay with external transistor (Active-High)
-    signalToSend = deviceShouldBeOn ? HIGH : LOW;
-
-    // === PROTECTION 2: CHECK CURRENT STATE ===
-    int currentSignal = digitalRead(pin);
-    if (currentSignal == signalToSend)
+    
+    // Only act if state actually needs to change
+    if (currentState != actualState)
     {
-        // Already in correct state
-        return; // CRITICAL: Stop here!
+        digitalWrite(pin, actualState ? HIGH : LOW);
+        lastToggleTime = now;
+        
+        Serial.print("[Relay " + name + "] ");
+        Serial.print(actualState ? "ON ✓" : "OFF ✓");
+        Serial.print(" (Requested: ");
+        Serial.print(deviceShouldBeOn ? "ON" : "OFF");
+        if (reverseLogic) Serial.print(" - reversed for active-LOW");
+        Serial.println(")");
     }
-
-    // === EXECUTE ===
-    digitalWrite(pin, signalToSend);
-    lastToggleTime = now;
-
-    // === LOGGING ===
-    // Serial.print("[Relay ");
-    // Serial.print(name);
-    // Serial.print("] Device ");
-    Serial.println(deviceShouldBeOn ? "ON" : "OFF");
+    else
+    {
+        // Optional: Uncomment for debugging
+        // Serial.println("[Relay " + name + "] Already in requested state");
+    }
 }
 
-// TODO: you need to refractor this, allowing the transistor to control the relay instead — to save power.
-// TODO: Same like the one for the water pump motor. Same logic and wires.
-
+// === FIX 3: Fixed LED strip control with proper documentation ===
 void ActuatorsManager::toggleArtificialLight(bool turnOn)
 {
-
-    useRelay(SystemConfig::LED_STRIP_PIN, turnOn, "Led Strip");
+    // LED Strip uses active-LOW relay (HIGH = OFF, LOW = ON)
+    // So we set reverseLogic = true
+    useRelay(SystemConfig::LED_STRIP_PIN, turnOn, true, "LED_Strip");
 }
 
+// === FIX 4: Fixed water pump control ===
 void ActuatorsManager::toggleWaterPump(bool turnOn)
 {
-    useRelay(SystemConfig::WATER_PUMP_PIN, turnOn, "Water Pump");
+    // Water pump uses active-HIGH relay (HIGH = ON, LOW = OFF)
+    // So we set reverseLogic = false
+    useRelay(SystemConfig::WATER_PUMP_PIN, turnOn, false, "Water_Pump");
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <Arduino.h>
-#include <EEPROM.h>
 
 class ActuatorsManager
 {
@@ -19,9 +18,9 @@ public:
     
     // TODO: Add driver for stepper motor
     //* With the stepper motor, we can control the opening and closing of a cover for the plant, which can help regulate sunlight and protect the plant from rain.
-    void openCover();
-    void closeCover();
-    void stepperBegin();
-    void stopCover();
-    void runStepper(); // Call this in loop() to keep the stepper moving toward its target
+    // void openCover();
+    // void closeCover();
+    // void stepperBegin();
+    // void stopCover();
+    // void runStepper(); // Call this in loop() to keep the stepper moving toward its target
 };
